@@ -1,24 +1,31 @@
 {
   "name": "global-primext-client",
   "version": "0.0.0",
+  "description": "Global PrimeX T client",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "dev": "ng serve --configuration development",
+    "production": "ng serve --configuration production",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
   "private": true,
+  "author": "alandevweb",
+  "license": "MIT",
   "dependencies": {
     "@angular/animations": "^16.2.0",
+    "@angular/cdk": "^16.2.14",
     "@angular/common": "^16.2.0",
     "@angular/compiler": "^16.2.0",
     "@angular/core": "^16.2.0",
     "@angular/forms": "^16.2.0",
+    "@angular/material": "^16.2.14",
     "@angular/platform-browser": "^16.2.0",
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
     "rxjs": "~7.8.0",
+    "sweetalert2": "^11.14.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },

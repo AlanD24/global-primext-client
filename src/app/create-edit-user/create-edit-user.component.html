@@ -1,0 +1,88 @@
+<div class="main-container">
+  <div class="form-container">
+    <form [formGroup]="userForm" (ngSubmit)="submitForm()">
+      <div class="title">
+        <mat-icon 
+          fontIcon="arrow_back" 
+          (click)="goBack()"
+        ></mat-icon> 
+        <h2>{{ isEditing ? 'Edit GPTX user' : 'Create GPTX user' }}</h2>
+      </div>
+
+      <!-- User field -->
+      <div class="field-box">
+        <label for="name">Name</label>
+        <input formControlName="name" type="text"/>
+
+        <p class="invalid-field"
+          *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched">
+          User is required
+        </p>
+      </div>
+      <!-- /User field -->
+
+      <!-- Paternal surname field -->
+      <div class="field-box">
+        <label for="paternalSurname">Parental Surname</label>
+        <input 
+          type="text" 
+          formControlName="paternal_surname" 
+        />
+
+        <p class="invalid-field"
+          *ngIf="userForm.get('paternal_surname')?.invalid && userForm.get('paternal_surname')?.touched">
+          Paternal surname is required
+        </p>
+      </div>
+      <!-- /Paternal surname field -->
+
+      <!-- Maternal surname field -->
+      <div class="field-box">
+        <label for="maternalSurname">Maternal Surname</label>
+        <input formControlName="maternal_surname" type="text"/>
+
+        <p class="invalid-field"
+          *ngIf="userForm.get('maternal_surname')?.invalid && userForm.get('maternal_surname')?.touched">
+          Maternal surname is required
+        </p>
+      </div>
+      <!-- /Maternal surname field -->
+
+      <!-- Address field -->
+      <div class="field-box">
+        <label for="address">Address</label>
+        <input formControlName="address" type="text"/>
+
+        <p class="invalid-field"
+          *ngIf="userForm.get('address')?.invalid && userForm.get('address')?.touched">
+          Address is required
+        </p>
+      </div>
+      <!-- /Address field -->
+
+      <!-- Phone field -->
+      <div class="field-box">
+        <label for="phone">Phone</label>
+        <input formControlName="phone" type="number" onKeyPress="if(this.value.length==10) return false;"/>
+
+        <p class="invalid-field"
+          *ngIf="userForm.get('phone')?.hasError('required') && userForm.get('phone')?.touched">
+          Phone is required
+        </p>
+
+        <p class="invalid-field"
+          *ngIf="userForm.get('phone')?.hasError('pattern') && userForm.get('phone')?.touched">
+          Phone limit is 10 numbers
+        </p>
+      </div>
+      <!-- /Phone field -->
+
+      <button type="submit" 
+        [disabled]="userForm.invalid"
+        [ngClass]="userForm.valid ? 'submit-button' : 'button-disabled'"
+      >
+        Enviar
+      </button>
+    </form>
+  </div>
+</div>
